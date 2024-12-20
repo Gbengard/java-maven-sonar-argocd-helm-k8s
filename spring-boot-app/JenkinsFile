@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Build and Test') {
       agent {
-        image 'abhishekf5/maven-abhishek-docker-agent:v1'
+        docker { image 'abhishekf5/maven-abhishek-docker-agent:v1' }
       }
       steps {
         sh 'ls -ltr'

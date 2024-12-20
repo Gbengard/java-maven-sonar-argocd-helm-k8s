@@ -27,8 +27,8 @@ pipeline {
         script {
           withSonarQubeEnv('Sonar') {
             sh "${scannerHome}/bin/sonar-scanner \
-                -Dsonar.projectKey=student-management \
-                -Dsonar.projectName=student-management \
+                -Dsonar.projectKey=springboot \
+                -Dsonar.projectName=springboot \
                 -Dsonar.projectVersion=1.0 \
                 -Dsonar.sources=."
           }

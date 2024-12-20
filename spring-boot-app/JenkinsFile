@@ -1,6 +1,10 @@
 pipeline {
-  agent any
-  
+  agent {
+    docker {
+      image 'abhishekf5/maven-abhishek-docker-agent:v1'
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+    }
+  }
   stages {
     stage('Checkout') {
       steps {
@@ -9,13 +13,6 @@ pipeline {
       }
     }
     stage('Build and Test') {
-      agent {
-        docker {
-          image 'abhishekf5/maven-abhishek-docker-agent:v1' // Docker image for the build stage
-          args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // Docker arguments
-          reuseNode true
-        }
-      }
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
@@ -29,7 +26,11 @@ pipeline {
       steps {
         script {
           withSonarQubeEnv('Sonar') {
-            sh 'cd spring-boot-app && mvn sonar:sonar'
+            sh "${scannerHome}/bin/sonar-scanner \
+                -Dsonar.projectKey=student-management \
+                -Dsonar.projectName=student-management \
+                -Dsonar.projectVersion=1.0 \
+                -Dsonar.sources=."
           }
         }
       }

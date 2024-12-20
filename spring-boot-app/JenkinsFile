@@ -26,7 +26,7 @@ pipeline {
       steps {
         script {
           withSonarQubeEnv('Sonar') {
-            sh "${scannerHome}/bin/sonar-scanner \
+            sh "/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/Sonar/bin/sonar-scanner \
                 -Dsonar.projectKey=springboot \
                 -Dsonar.projectName=springboot \
                 -Dsonar.projectVersion=1.0 \

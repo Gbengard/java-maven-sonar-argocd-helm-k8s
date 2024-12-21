@@ -6,7 +6,6 @@ pipeline {
     }
   }
   stages {
-
     stage('Checkout') {
       steps {
         sh 'echo passed'
@@ -27,7 +26,7 @@ pipeline {
       steps {
         script {
           withSonarQubeEnv('Sonar') {
-            sh'cd spring-boot-app && mvn sonar:sonar'
+            sh 'cd spring-boot-app && mvn sonar:sonar'
           }
         }
       }

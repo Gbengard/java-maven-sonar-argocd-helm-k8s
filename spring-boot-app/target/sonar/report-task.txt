@@ -2,5 +2,5 @@ projectKey=com.abhishek:spring-boot-demo
 serverUrl=http://host.docker.internal:9000
 serverVersion=9.4.0.54424
 dashboardUrl=http://host.docker.internal:9000/dashboard?id=com.abhishek%3Aspring-boot-demo
-ceTaskId=AZP4jTDcSLi0hvTW1TQZ
-ceTaskUrl=http://host.docker.internal:9000/api/ce/task?id=AZP4jTDcSLi0hvTW1TQZ
+ceTaskId=AZP4p3QpSLi0hvTW1TQa
+ceTaskUrl=http://host.docker.internal:9000/api/ce/task?id=AZP4p3QpSLi0hvTW1TQa
